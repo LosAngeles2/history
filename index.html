@@ -197,28 +197,69 @@
             opacity: .95;
         }
 
-        @media (max-width: 768px) {
-            .timeline::before {
-                left: 15px;
-            }
+       @media (max-width: 768px) {
 
-            .card {
-                width: 100%;
-                margin-left: 35px !important;
-            }
+    .hero {
+        padding: 20px;
+        min-height: 90vh;
+    }
 
-            .section-title {
-                font-size: 2rem;
-            }
+    h1 {
+        font-size: 1.6rem;
+        line-height: 1.6;
+    }
 
-            .message-box {
-                padding: 35px;
-            }
+    .section {
+        padding: 70px 15px;
+    }
 
-            h1 {
-                font-size: 1.8rem;
-            }
-        }
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 35px;
+    }
+
+    .timeline::before {
+        display: none;
+    }
+
+    .card {
+        width: 100%;
+        margin: 0 0 25px 0 !important;
+        padding: 20px;
+    }
+
+    .timeline-photo img {
+        width: 100%;
+        height: auto;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .photo {
+        height: auto;
+        min-height: 250px;
+    }
+
+    .message {
+        padding: 70px 15px;
+    }
+
+    .message-box {
+        padding: 25px 20px;
+    }
+
+    .message-box h2 {
+        font-size: 2rem;
+    }
+
+    .message-box p {
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+}
     </style>
 </head>
 <body>
