@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>gallery our life</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI',sans-serif;
+        }
+        body {
+            color: white;
+            background: linear-gradient(135deg, #6ea8ff 0%, #8a7dff 40%, #b18cff 100%);
+        }
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30px;
+        }
+        h1 {
+            font-size: 2rem;
+            max-width: 1000px;
+        }
+        .section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 120px 25px;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 70px;
+        }
+        .timeline {
+            position: relative;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 3px;
+            height: 100%;
+            background: white;
+            opacity: .3;
+        }
+        .card {
+            width: 45%;
+            padding: 30px;
+            border-radius: 28px;
+            margin-bottom: 50px;
+            background: rgba(255,255,255,.12);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,.25);
+        }
+        .card:nth-child(odd) {
+            margin-left: auto;
+        }
+        .date {
+            color: #e8f9ff;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .timeline-photo {
+            margin-top: 20px;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .timeline-photo img {
+            width: 100%;
+            display: block;
+        }
+        .card-text {
+            margin-top: 15px;
+            line-height: 1.7;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        .photo {
+            height: 350px;
+            border-radius: 28px;
+            overflow: hidden;
+        }
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .message {
+            padding: 120px 25px;
+        }
+        .message-box {
+            max-width: 850px;
+            margin: auto;
+            background: rgba(255,255,255,.12);
+            backdrop-filter: blur(20px);
+            border-radius: 35px;
+            padding: 60px;
+            text-align: center;
+        }
+        .message-box h2 {
+            font-size: 3rem;
+            margin-bottom: 25px;
+        }
+
+        /* ТЕЛЕФОН — ПРИНУДИТЕЛЬНЫЕ СТИЛИ */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.3rem !important;
+            }
+            .section-title {
+                font-size: 1.7rem !important;
+            }
+            .timeline::before {
+                display: none !important;
+            }
+            .card {
+                width: 100% !important;
+                margin-left: 0 !important;
+                margin-bottom: 25px !important;
+                padding: 20px !important;
+            }
+            .gallery {
+                grid-template-columns: 1fr !important;
+            }
+            .photo {
+                height: auto !important;
+                min-height: 200px !important;
+            }
+            .message-box h2 {
+                font-size: 1.8rem !important;
+            }
+            .message-box p {
+                font-size: 0.95rem !important;
+            }
+            .section {
+                padding: 60px 18px !important;
+            }
+            .hero {
+                padding: 20px !important;
+                min-height: auto !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <h1>привет Алина, сначало я бы хотел извиниться за недавнюю сорру и за бомбер! я не хотел этого, но так получилось, я тогда был чуть-чуть расстроенный из-за тебя :( поэтому я решил сделать такую небольшую галерею о нашей дружбе, надеюсь тебе понравится</h1>
+    </section>
+    <section class="section">
+        <h2 class="section-title">Наш путь</h2>
+        <div class="timeline">
+            <div class="card">
+                <div class="date">19 декабря 2023</div>
+                <h3>Наше первое общение</h3>
+                <div class="timeline-photo"><img src="images/first-chat.jpeg" alt="Первое общение"></div>
+                <p class="card-text">Именно с этого сообщения всё и началось :)</p>
+            </div>
+            <div class="card">
+                <div class="date">Спустя некоторое время</div>
+                <h3>Когда я узнал, что такое тактильность 😅</h3>
+                <div class="timeline-photo"><img src="images/tactile-chat.jpeg" alt="Разговор про тактильность"></div>
+                <p class="card-text">До сих пор смешно вспоминать этот разговор.</p>
+            </div>
+            <div class="card">
+                <div class="date">Тот самый момент</div>
+                <h3>Когда я решил сказать то, что долго держал в себе</h3>
+                <div class="timeline-photo"><img src="images/confession-chat.jpeg" alt="Признание"></div>
+                <p class="card-text">Было страшно писать это сообщение, но я всё равно решился.</p>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <h2 class="section-title">Наши моменты (если бы выходила гулять, то было бы больше ахуенных фоток)</h2>
+        <div class="gallery">
+            <div class="photo"><img src="images/photo2 (1).jpeg"></div>
+            <div class="photo"><img src="images/photo2 (2).jpeg"></div>
+            <div class="photo"><img src="images/photo2 (3).jpeg"></div>
+        </div>
+    </section>
+    <section class="message">
+        <div class="message-box">
+            <h2>💜 Спасибо тебе за все</h2>
+            <p>может тебе покажется что это все хуйня и делается за пару минут, но хочу тебе сказать, что я весь день на это вьебал, такие сайты сложно делать и придумать что-то годное. Я хочу тебе этим сказать, что я тебя очень сильно ценю и не хотел бы потерять. Если я тебе не пишу, то возможно я занят сильно, так как курсовую щас делаю, а то подумаешь еще, что я просто не хочу с тобой больше общаться. Всё сделано с любовью, сестренка 💜💜💜💜</p>
+        </div>
+    </section>
+</body>
+</html>
