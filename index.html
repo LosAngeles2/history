@@ -2,15 +2,14 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>gallery our life</title>
     <style>
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI',sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         html {
@@ -21,35 +20,36 @@
             color: white;
             overflow-x: hidden;
             background: linear-gradient(135deg, #6ea8ff 0%, #8a7dff 40%, #b18cff 100%);
+            min-height: 100vh;
         }
 
-            body::before {
-                content: "";
-                position: fixed;
-                width: 700px;
-                height: 700px;
-                background: #8fd3ff;
-                border-radius: 50%;
-                filter: blur(180px);
-                opacity: .35;
-                top: -250px;
-                left: -200px;
-                z-index: -1;
-            }
+        body::before {
+            content: "";
+            position: fixed;
+            width: 700px;
+            height: 700px;
+            background: #8fd3ff;
+            border-radius: 50%;
+            filter: blur(180px);
+            opacity: .35;
+            top: -250px;
+            left: -200px;
+            z-index: -1;
+        }
 
-            body::after {
-                content: "";
-                position: fixed;
-                width: 600px;
-                height: 600px;
-                background: #d6a4ff;
-                border-radius: 50%;
-                filter: blur(180px);
-                opacity: .35;
-                bottom: -250px;
-                right: -200px;
-                z-index: -1;
-            }
+        body::after {
+            content: "";
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background: #d6a4ff;
+            border-radius: 50%;
+            filter: blur(180px);
+            opacity: .35;
+            bottom: -250px;
+            right: -200px;
+            z-index: -1;
+        }
 
         .hero {
             min-height: 100vh;
@@ -61,10 +61,13 @@
         }
 
         h1 {
-            font-size: clamp(1.4rem, 4vw, 2.3rem);
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
             line-height: 1.4;
             margin-bottom: 25px;
             font-weight: 500;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .section {
@@ -77,21 +80,23 @@
             text-align: center;
             font-size: 3rem;
             margin-bottom: 70px;
+            word-break: break-word;
         }
 
         .timeline {
             position: relative;
         }
 
-            .timeline::before {
-                content: '';
-                position: absolute;
-                left: 50%;
-                width: 3px;
-                height: 100%;
-                background: white;
-                opacity: .3;
-            }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 3px;
+            height: 100%;
+            background: white;
+            opacity: .3;
+            transform: translateX(-50%);
+        }
 
         .card {
             width: 45%;
@@ -104,23 +109,25 @@
             transition: .35s;
         }
 
-            .card:hover {
-                transform: translateY(-10px);
-                background: rgba(255,255,255,.18);
-            }
+        .card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,.18);
+        }
 
-            .card:nth-child(odd) {
-                margin-left: auto;
-            }
+        .card:nth-child(odd) {
+            margin-left: auto;
+        }
 
         .date {
             color: #e8f9ff;
             font-weight: 700;
             margin-bottom: 15px;
+            font-size: 1rem;
         }
 
         .card h3 {
             margin-bottom: 12px;
+            font-size: 1.4rem;
         }
 
         .gallery {
@@ -142,15 +149,16 @@
             transition: .4s;
         }
 
-            .photo:hover {
-                transform: scale(1.03);
-            }
+        .photo:hover {
+            transform: scale(1.03);
+        }
 
-            .photo img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
 
         .message {
             padding: 120px 25px;
@@ -167,29 +175,33 @@
             text-align: center;
         }
 
-            .message-box h2 {
-                font-size: 3rem;
-                margin-bottom: 25px;
-            }
+        .message-box h2 {
+            font-size: 3rem;
+            margin-bottom: 25px;
+        }
 
-            .message-box p {
-                line-height: 2;
-                font-size: 1.1rem;
-            }
+        .message-box p {
+            line-height: 2;
+            font-size: 1.1rem;
+        }
 
         .timeline-photo {
             margin-top: 20px;
-            height: auto;
             overflow: hidden;
             border-radius: 20px;
+            background: rgba(0,0,0,0.2);
+            min-height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-            .timeline-photo img {
-                width: 100%;
-                height: auto;
-                display: block;
-                border-radius: 20px;
-            }
+        .timeline-photo img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 20px;
+        }
 
         .card-text {
             margin-top: 15px;
@@ -197,69 +209,108 @@
             opacity: .95;
         }
 
-       @media (max-width: 768px) {
+        /* ========= ТЕЛЕФОН — ПОЛНОСТЬЮ ПЕРЕРАБОТАНО ========= */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 20px;
+                min-height: 90vh;
+                align-items: center;
+            }
 
-    .hero {
-        padding: 20px;
-        min-height: 90vh;
-    }
+            h1 {
+                font-size: 1.5rem;
+                line-height: 1.45;
+                padding: 0 5px;
+            }
 
-    h1 {
-        font-size: 1.6rem;
-        line-height: 1.6;
-    }
+            .section {
+                padding: 60px 18px;
+            }
 
-    .section {
-        padding: 70px 15px;
-    }
+            .section-title {
+                font-size: 2.1rem;
+                margin-bottom: 40px;
+            }
 
-    .section-title {
-        font-size: 2rem;
-        margin-bottom: 35px;
-    }
+            /* Убираем центральную линию на телефонах */
+            .timeline::before {
+                display: none;
+            }
 
-    .timeline::before {
-        display: none;
-    }
+            /* Карточки — во всю ширину, без выезжания */
+            .card {
+                width: 100% !important;
+                margin: 0 0 30px 0 !important;
+                padding: 20px;
+            }
 
-    .card {
-        width: 100%;
-        margin: 0 0 25px 0 !important;
-        padding: 20px;
-    }
+            .card h3 {
+                font-size: 1.3rem;
+            }
 
-    .timeline-photo img {
-        width: 100%;
-        height: auto;
-    }
+            .timeline-photo {
+                margin-top: 15px;
+            }
 
-    .gallery {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
+            /* Галерея — 1 колонка, без переполнения */
+            .gallery {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
 
-    .photo {
-        height: auto;
-        min-height: 250px;
-    }
+            .photo {
+                height: auto;
+                min-height: 240px;
+                width: 100%;
+            }
 
-    .message {
-        padding: 70px 15px;
-    }
+            .photo img {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+                background: rgba(0,0,0,0.2);
+            }
 
-    .message-box {
-        padding: 25px 20px;
-    }
+            .message {
+                padding: 60px 18px;
+            }
 
-    .message-box h2 {
-        font-size: 2rem;
-    }
+            .message-box {
+                padding: 30px 20px;
+            }
 
-    .message-box p {
-        font-size: 1rem;
-        line-height: 1.8;
-    }
-}
+            .message-box h2 {
+                font-size: 2rem;
+            }
+
+            .message-box p {
+                font-size: 1rem;
+                line-height: 1.65;
+            }
+
+            .date {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Очень маленькие телефоны (до 480px) */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.3rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .card {
+                padding: 18px;
+            }
+            .message-box {
+                padding: 20px 16px;
+            }
+            .message-box h2 {
+                font-size: 1.7rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -267,7 +318,7 @@
     <section class="hero">
         <h1>
             привет Алина, сначало я бы хотел извиниться за недавнюю сорру и за бомбер! я не хотел этого, но так
-            получилось, я тогда был чуть-чуть расстроенный из-за тебя :(
+            получилось, я тогда был чуть-чуть расстроенный из-за тебя :(<br>
             поэтому я решил сделать такую небольшую галерею о нашей дружбе, надеюсь тебе понравится
         </h1>
     </section>
@@ -277,28 +328,28 @@
         <div class="timeline">
 
             <div class="card">
-                <div class="date">19 декабря 2023</div>
+                <div class="date">📅 19 декабря 2023</div>
                 <h3>Наше первое общение</h3>
                 <div class="timeline-photo">
-                    <img src="images/first-chat.jpeg" alt="Первое общение">
+                    <img src="images/first-chat.jpeg" alt="Первое общение" onerror="this.onerror=null; this.src='https://placehold.co/600x400/8a7dff/white?text=📸+first+chat'; this.style.opacity='0.9';">
                 </div>
-                <p class="card-text">Именно с этого сообщения всё и началось :)</p>
+                <p class="card-text">✨ Именно с этого сообщения всё и началось :)</p>
             </div>
 
             <div class="card">
-                <div class="date">Спустя некоторое время</div>
+                <div class="date">😂 Спустя некоторое время</div>
                 <h3>Когда я узнал, что такое тактильность 😅</h3>
                 <div class="timeline-photo">
-                    <img src="images/tactile-chat.jpeg" alt="Разговор про тактильность">
+                    <img src="images/tactile-chat.jpeg" alt="Разговор про тактильность" onerror="this.onerror=null; this.src='https://placehold.co/600x400/b18cff/white?text=💬+тактильность';">
                 </div>
                 <p class="card-text">До сих пор смешно вспоминать этот разговор.</p>
             </div>
 
             <div class="card">
-                <div class="date">Тот самый момент</div>
+                <div class="date">💖 Тот самый момент</div>
                 <h3>Когда я решил сказать то, что долго держал в себе</h3>
                 <div class="timeline-photo">
-                    <img src="images/confession-chat.jpeg" alt="Признание">
+                    <img src="images/confession-chat.jpeg" alt="Признание" onerror="this.onerror=null; this.src='https://placehold.co/600x400/ff9eb5/white?text=❤️+признание';">
                 </div>
                 <p class="card-text">Было страшно писать это сообщение, но я всё равно решился.</p>
             </div>
@@ -307,16 +358,16 @@
     </section>
 
     <section class="section">
-        <h2 class="section-title">Наши моменты (если бы выходила гулять, то было бы больше ахуенных фоток)</h2>
+        <h2 class="section-title">📸 Наши моменты <br><span style="font-size: 1.2rem;">(если бы выходила гулять, то было бы больше ахуенных фоток)</span></h2>
         <div class="gallery">
             <div class="photo">
-                <img src="images/photo2 (1).jpeg">
+                <img src="images/photo2 (1).jpeg" alt="Фото 1" onerror="this.onerror=null; this.src='https://placehold.co/600x500/8a7dff/white?text=✨+тут+была+наша+встреча'; this.style.objectFit='cover';">
             </div>
             <div class="photo">
-                <img src="images/photo2 (2).jpeg">
+                <img src="images/photo2 (2).jpeg" alt="Фото 2" onerror="this.onerror=null; this.src='https://placehold.co/600x500/b18cff/white?text=💜+дружба';">
             </div>
             <div class="photo">
-                <img src="images/photo2 (3).jpeg">
+                <img src="images/photo2 (3).jpeg" alt="Фото 3" onerror="this.onerror=null; this.src='https://placehold.co/600x500/6ea8ff/white?text=⭐+лучший+момент';">
             </div>
         </div>
     </section>
@@ -325,9 +376,9 @@
         <div class="message-box">
             <h2>💜 Спасибо тебе за все</h2>
             <p>
-                может тебе покажется что это все хуйня и делается за пару минут, но хочу тебе сказать, что я весь день на это вьебал,
-                такие сайты сложно делать и придумать что-то годное. Я хочу тебе этим сказать, что я тебя очень сильно ценю и
-                не хотел бы потерять. Если я тебе не пишу, то возможно я занят сильно, так как курсовую щас делаю, а то подумаешь еще,
+                может тебе покажется что это все хуйня и делается за пару минут, но хочу тебе сказать, что я весь день на это вьебал,<br>
+                такие сайты сложно делать и придумать что-то годное. Я хочу тебе этим сказать, что я тебя очень сильно ценю и<br>
+                не хотел бы потерять. Если я тебе не пишу, то возможно я занят сильно, так как курсовую щас делаю, а то подумаешь еще,<br>
                 что я просто не хочу с тобой больше общаться. Всё сделано с любовью, сестренка 💜💜💜💜
             </p>
         </div>
